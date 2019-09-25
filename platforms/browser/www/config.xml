@@ -6,9 +6,9 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>brighty</name>
+    <name>Brighty</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Brighty - simple game.
 	</description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
