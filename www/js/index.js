@@ -54,10 +54,10 @@ var mySound;
 
 function startGame() {
 	if (document.getElementsByTagName("audio")[0] == null) {
-		mySound = new sound("../audio/sound.mp3");
+		mySound = new sound("./audio/sound.mp3");
 		mySound.play();
 	}
-	myGamePiece = new component(50, 50, "../img/firefly.png", 250, 120, "firefly");
+	myGamePiece = new component(50, 50, "./img/firefly.png", 250, 120, "firefly");
 	myGamePiece.gravity = 0.05;
 	myObstacles = [];
 	myHighScore = new component("20px", "Consolas", "white", 15, 50, "text");
@@ -172,8 +172,8 @@ function updateGameArea() {
 		minGap = 50;
 		maxGap = 200;
 		gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);					
-		myObstacles.push(new component(71, height, "../img/spines-up.png", x, 0, "spines"));
-		myObstacles.push(new component(71, x - height - gap, "../img/spines-down.png", x, height + gap, "spines"));
+		myObstacles.push(new component(71, height, "./img/spines-up.png", x, 0, "spines"));
+		myObstacles.push(new component(71, x - height - gap, "./img/spines-down.png", x, height + gap, "spines"));
 	}
 	for (i = 0; i < myObstacles.length; i += 1) {
 		if (myGameArea.frameNo > 5000) {
