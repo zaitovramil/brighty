@@ -12,13 +12,7 @@
         },
         "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.phonegap.brighty"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.phonegap.brighty"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.phonegap.brighty"
-        },
+        }
     },
     "dependent_plugins": {
         "cordova-plugin-file": {
