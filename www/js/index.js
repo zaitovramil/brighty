@@ -57,11 +57,11 @@ function startGame() {
 		mySound = new sound("./audio/sound.mp3");
 		mySound.play();
 	}
-	myGamePiece = new component(50, 50, "./img/firefly.png", 250, 120, "firefly");
+	myGamePiece = new component(60, 60, "./img/firefly.png", 255, 130, "firefly");
 	myGamePiece.gravity = 0.05;
 	myObstacles = [];
-	myHighScore = new component("20px", "Consolas", "white", 15, 50, "text");
-	myScore = new component("30px", "Consolas", "white", 15, 80, "text");
+	myHighScore = new component("20px", "Consolas", "white", 30, 50, "text");
+	myScore = new component("30px", "Consolas", "white", 30, 80, "text");
 	myGameArea.start();
 	document.getElementById("game").style.display = "block";
 	document.getElementById("menu").style.display = "none";
@@ -139,10 +139,10 @@ function component(width, height, color, x, y, type) {
 		var myright = this.x + (this.width);
 		var mytop = this.y;
 		var mybottom = this.y + (this.height);
-		var otherleft = otherobj.x + 30;
-		var otherright = otherobj.x - 30 + (otherobj.width);
-		var othertop = otherobj.y + 30;
-		var otherbottom = otherobj.y - 20 + (otherobj.height);
+		var otherleft = otherobj.x + 40;
+		var otherright = otherobj.x - 40 + (otherobj.width);
+		var othertop = otherobj.y + 40;
+		var otherbottom = otherobj.y - 30 + (otherobj.height);
 		var crash = true;
 		if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
 			crash = false;
@@ -166,10 +166,10 @@ function updateGameArea() {
 	myGameArea.frameNo += 1;
 	if (myGameArea.frameNo == 1 || everyinterval(150)) {
 		x = myGameArea.canvas.width;					
-		minHeight = 50;
+		minHeight = 60;
 		maxHeight = 200;
 		height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);					
-		minGap = 50;
+		minGap = 60;
 		maxGap = 200;
 		gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);					
 		myObstacles.push(new component(71, height, "./img/spines-up.png", x, 0, "spines"));
