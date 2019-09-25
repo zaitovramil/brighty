@@ -50,13 +50,13 @@
 			<div class="event received">
 				<div id="menu">
 					<img src="img/brighty.png" class="blink" />
-					<button onclick="startGame()" id="start">START GAME</button>
+					<button onclick="startGame();" id="start">START GAME</button>
 				</div>
 				<div id="game">
 					<div id="canvas"></div>
-					<button onpointerdown="accelerate(-0.2)" onpointerup="accelerate(0.05)" id="push">PUSH</button>
-					<button onclick="restart()" id="restart">RESTART</button>
-					<button onclick="volume()" id="volume">MUSIC</button>
+					<button onpointerdown="accelerate(-0.2); down();" onpointerup="accelerate(0.05); up();" id="push">PUSH</button>
+					<button onclick="restart();" id="restart">RESTART</button>
+					<button onclick="volume();" id="volume">MUSIC</button>
 				</div>
 			</div>
 		</div>

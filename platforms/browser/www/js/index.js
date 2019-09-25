@@ -177,6 +177,8 @@ function updateGameArea() {
 	}
 	for (i = 0; i < myObstacles.length; i += 1) {
 		if (myGameArea.frameNo > 5000) {
+			myObstacles[i].x += -3;
+		} else if (myGameArea.frameNo > 2500) {
 			myObstacles[i].x += -2;
 		} else {
 			myObstacles[i].x += -1;
@@ -200,6 +202,23 @@ function updateGameArea() {
 	myGamePiece.update();
 }
 
+function everyinterval(n) {
+	if (myGameArea.frameNo > 5000) {
+		if ((myGameArea.frameNo / n * 3) % 1 == 0) {return true;}
+		return false;
+	} else if (myGameArea.frameNo > 2500) {
+		if ((myGameArea.frameNo / n * 2) % 1 == 0) {return true;}
+		return false;
+	} else {
+		if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+		return false;
+	}
+}
+
+function accelerate(n) {
+	myGamePiece.gravity = n;
+}
+
 function sound(src) {
 	this.sound = document.createElement("audio");
 	this.sound.src = src;
@@ -221,25 +240,20 @@ function volume() {
 	var button = document.getElementById("volume");
 	if (audio.paused) {
 		mySound.play();
-		button.classList.remove("off");
+		button.classList.remove("down");
 	} else {
 		mySound.stop();
-		button.classList.add("off");
+		button.classList.add("down");
 	}
 }
 
-function everyinterval(n) {
-	if (myGameArea.frameNo > 5000) {
-		if ((myGameArea.frameNo / n * 2) % 1 == 0) {return true;}
-		return false;
-	} else {
-		if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-		return false;
-	}
+function down() {
+	var button = document.getElementById("push");
+	button.classList.add("down");
 }
-
-function accelerate(n) {
-	myGamePiece.gravity = n;
+function up() {
+	var button = document.getElementById("push");
+	button.classList.remove("down");
 }
 
 function restart() {
