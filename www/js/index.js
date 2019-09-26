@@ -51,12 +51,14 @@ var myHighScore;
 var myScore;
 var myBestScore;
 var mySound;
+var mySoundEffect;
 
 function startGame() {
 	if (document.getElementsByTagName("audio")[0] == null) {
 		mySound = new sound("./audio/sound.mp3");
 		mySound.play();
 	}
+	mySoundEffect = new sound("./audio/noise.mp3");
 	myGamePiece = new component(60, 60, "./img/firefly.png", 255, 130, "firefly");
 	myGamePiece.gravity = 0.05;
 	myObstacles = [];
@@ -158,6 +160,10 @@ function updateGameArea() {
 	var x, height, gap, minHeight, maxHeight, minGap, maxGap;
 	for (i = 0; i < myObstacles.length; i += 1) {
 		if (myGamePiece.crashWith(myObstacles[i])) {
+			mySoundEffect.play();
+			setTimeout(function() {
+				mySoundEffect.stop();
+			}, 150);
             myGameArea.stop();
 			return;
 		} 
