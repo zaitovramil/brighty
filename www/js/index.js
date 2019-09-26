@@ -34,10 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		document.addEventListener("backbutton", function (e) {
-			e.preventDefault(); 
-			navigator.notification.confirm("Are you sure want to exit from App?", onConfirmExit, "Confirmation", "Yes,No");
-		}, false );
+		document.addEventListener("backbutton", dismissApp, false);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -49,13 +46,15 @@ var app = {
     }
 };
 
-function onConfirmExit(button) {
-	if (button == 2) { 
-		return;
-	} else {
+function dismissApp() {
+	if (navigator && navigator.app) {
 		navigator.app.exitApp();
+	} else {
+		if (navigator && navigator.device) {
+			navigator.device.exitApp();
+		}
 	}
-}
+};
 
 var myGamePiece;
 var myObstacles = [];
