@@ -193,7 +193,11 @@ function updateGameArea() {
 		myObstacles.push(new component(71, x - height - gap, "./img/spines-down.png", x, height + gap, "spines"));
 	}
 	for (i = 0; i < myObstacles.length; i += 1) {
-		if (myGameArea.frameNo > 5000) {
+		if (myGameArea.frameNo > 10000) {
+			myObstacles[i].x += -5;
+		} else if (myGameArea.frameNo > 7500) {
+			myObstacles[i].x += -4;
+		} else if (myGameArea.frameNo > 5000) {
 			myObstacles[i].x += -3;
 		} else if (myGameArea.frameNo > 2500) {
 			myObstacles[i].x += -2;
