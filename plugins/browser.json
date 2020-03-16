@@ -9,9 +9,6 @@
     "installed_plugins": {
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.phonegap.brighty"
-        },
-        "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "com.phonegap.brighty"
         }
     },
     "dependent_plugins": {
